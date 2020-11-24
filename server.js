@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const colors = require("colors");
 const connectDB = require("./config/db");
 
 //Carregar env vars
@@ -26,12 +27,14 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
   PORT,
-  console.log(`Server abriu em modo ${process.env.NODE_ENV}, na porta ${PORT}`)
+  console.log(
+    `Server abriu em modo ${process.env.NODE_ENV}, na porta ${PORT}`.yellow.bold
+  )
 );
 
 //pegando as rejeições
 process.on("unhadledRejection", (err, promise) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message}`.red);
 
   //fechar server e fechar processo.
   server.close(() => process.exit(1));
