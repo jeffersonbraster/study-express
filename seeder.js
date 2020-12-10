@@ -8,6 +8,7 @@ dotenv.config({ path: "./config/config.env" });
 
 //Carregar models
 const bootcamp = require("./models/Bootcamp");
+const course = require("./models/Course");
 
 //Conectar com o mongodb
 
@@ -23,10 +24,15 @@ const bootcamps = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/bootcamps.json`, "utf-8")
 );
 
+const courses = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/courses.json`, "utf-8")
+);
+
 //Importar dentro do mongodb
 const importData = async () => {
   try {
     await bootcamp.create(bootcamps);
+    await course.create(courses);
 
     console.log("Dados importados...".green.inverse);
     process.exit();
@@ -39,6 +45,7 @@ const importData = async () => {
 const deleteData = async () => {
   try {
     await bootcamp.deleteMany();
+    await course.deleteMany();
 
     console.log("Dados deletados...".red.inverse);
     process.exit();
