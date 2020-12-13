@@ -37,3 +37,18 @@ exports.protect = asyncHandler(async (req, res, next) => {
     new ErrorResponse("Sem autorização para acessar sua solicitação.", 401);
   }
 });
+
+//Grand access to specific roles
+exports.authorize = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new ErrorResponse(
+          `User role ${req.user.role} não está authorizado para acessar essa requisição.`,
+          403
+        )
+      );
+    }
+    next();
+  };
+};
