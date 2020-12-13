@@ -97,7 +97,7 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
   if (bootcamp.user.toString() !== req.user.id && req.user.role !== "admin") {
     return next(
       new ErrorResponse(
-        `Usuário ${req.params.id} não pertence a este bootcamp`,
+        `Usuário ${req.user.name} não pertence a este bootcamp`,
         401
       )
     );
