@@ -11,7 +11,6 @@ const ReviewSchema = new mongoose.Schema({
   text: {
     type: String,
     required: [true, "Por gentileza, adicione um texto para o review."],
-    maxlength: 300,
   },
 
   rating: {
