@@ -517,6 +517,11 @@ express-fileupload@^1.2.0:
   dependencies:
     busboy "^0.3.1"
 
+express-mongo-sanitize@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/express-mongo-sanitize/-/express-mongo-sanitize-2.0.1.tgz#18c9de723b747834f86e6077d164ef16f8d5c5b6"
+  integrity sha512-aeI5s31m5HlR9SedUlhXVuWwm3alVxcyVr2cUq6jFr/0FcCr5Vz5qItEcrtVz5YUdS5HvOAUG8hF6eRGgbQQ9w==
+
 express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
